@@ -1,6 +1,5 @@
 #include "CreateSkin.hpp"
 #include <fstream>
-#include <vector>
 
 double clamp(double val, double min, double max)
 {
@@ -60,9 +59,9 @@ void 	CreateSkin( const cadcam::mwTPoint3d<double> refPoint,
 
 	{
 		std::ofstream SkinFile(skinFileName);
-		for (unsigned long X{0}; X < nx; X++)
-			for (unsigned long Y{0}; Y < ny; Y++)
-				SkinFile << Y * delta << ' '
+		for (auto X{0}; X < nx; X++)
+			for (auto Y{0}; Y < ny; Y++)
+				SkinFile << X * delta << ' '
 						 << Y * delta << ' '
 						 << skin[X][Y] * delta << std::endl;
 		SkinFile.close();
