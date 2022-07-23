@@ -31,7 +31,14 @@ int main(int argc, char* argv[])
 	const double sphereRad = 5.;
 
 	//Name of the file to write the skin data to
+#ifdef __linux__
+	const std::string skinFileName( "./test.asc" );
+#elif _WIN32
 	const std::string skinFileName( "C:\\test.asc" );
+#else
+	const std::string skinFileName( "C:\\test.asc" );
+#endif
+
 
 	//Function object to be evaluated
 	mwArcFunction func( 0., 1., 150. );
